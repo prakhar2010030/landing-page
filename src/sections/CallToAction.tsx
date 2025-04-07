@@ -15,20 +15,19 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const updateMousePosition = (event: MouseEvent) => {
-    if (!to.current) return;
-    const { top, left } = to.current.getBoundingClientRect();
-    mouseX.set(event.x - left);
-    mouseY.set(event.y - top);
-  };
-
   useEffect(() => {
+    const updateMousePosition = (event: MouseEvent) => {
+      if (!to.current) return;
+      const { top, left } = to.current.getBoundingClientRect();
+      mouseX.set(event.x - left);
+      mouseY.set(event.y - top);
+    };
     window.addEventListener("mousemove", updateMousePosition);
 
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, [updateMousePosition]);
+  }, [to,mouseX,mouseX]);
 
   return [mouseX, mouseY];
 };
@@ -49,7 +48,7 @@ export const CallToAction = () => {
   );
 
   const [mouseX, mouseY] = useRelativeMousePosition(borderedDivRef);
-  
+
   const maskImage = useMotionTemplate`radial-gradient(50% 50% at ${mouseX}px ${mouseY}px,black,transparent)`;
 
   return (
