@@ -92,7 +92,7 @@ const FeatureTab = (tab: TabObj) => {
     };
     animate(xPercentage, [0, 100, 100, 0, 0], options);
     animate(yPercentage, [0, 0, 100, 100, 0], options);
-  }, [tab.selected]);
+  }, [tab.selected, xPercentage, yPercentage]);
 
   return (
     <div
@@ -150,7 +150,7 @@ export const Features = () => {
       options
     );
     animate(
-      backgroundPositionX, 
+      backgroundPositionX,
       [backgroundPositionX.get(), 100, tabs[index].backgroundSizeX],
       options
     );

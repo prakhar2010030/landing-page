@@ -1,12 +1,7 @@
 "use client";
 import Button from "@/components/Button";
 import starsBg from "@/assets/stars.png";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 export const Hero = () => {
@@ -85,8 +80,8 @@ export const Hero = () => {
           AI SEO
         </h1>
         <p className="text-lg md:text-xl max-w-xl mx-auto text-white/70 mt-5 text-center">
-          Elevate your site's visibility effortlessly with AI, where smart
-          technology meets user-friendly SEO tools
+          {`Elevate your site's visibility effortlessly with AI, where smart
+          technology meets user-friendly SEO tools`}
         </p>
         <div className="flex justify-center mt-5">
           <Button>Join waitlist</Button>
