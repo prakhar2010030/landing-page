@@ -43,10 +43,12 @@ export const LogoTicker = () => {
               ].map((logo, index) => {
                 return (
                   <Image
+                    width={100} 
+                    height={24} 
                     src={logo.src}
                     key={index}
                     className="h-6 w-auto"
-                    alt={`${logo.width}`}
+                    alt="logo"
                   />
                 );
               })}
